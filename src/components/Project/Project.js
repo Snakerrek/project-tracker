@@ -1,9 +1,13 @@
+import Timer from "../Timer/Timer";
+import ToDoList from "../ToDoList/ToDoList";
+
 import { Wrapper, Content } from "./Project.styles";
 
-const Project = ({ name, backdropPath }) => (
-  <Wrapper backdrop={backdropPath}>
+const Project = ({ project }) => (
+  <Wrapper backdrop={project.backdropPath}>
     <Content>
-      <h2>{name}</h2>
+      <Timer title={project.title} description={project.description} />
+      <ToDoList />
     </Content>
   </Wrapper>
 );
