@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   max-width: 540px;
   background: red;
+  margin-top: 20px;
 `;
 
 export const Content = styled.div`

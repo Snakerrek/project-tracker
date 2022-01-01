@@ -1,18 +1,31 @@
+import { useState } from "react";
+
+import Task from "../Task/Task";
+import ToDoForm from "../ToDoForm/ToDoForm";
+
 import { Wrapper, Content } from "./ToDoList.styles";
 
-const ToDoList = () => (
-  <Wrapper>
-    <Content>
-      <h2>To do list</h2>
-      <p>Task 1</p>
-      <p>Task 2</p>
-      <p>Task 3</p>
-      <p>Task 4</p>
-      <p>Task 5</p>
-      <p>Task 6</p>
-      <p>Task 7</p>
-    </Content>
-  </Wrapper>
-);
+const ToDoList = ({ tasks }) => {
+  const [todos, setTodos] = useState(tasks);
 
+  const addTodo = (todo) => {
+    if (!todo.text) return;
+
+    const newTodos = [todo, ...todos];
+    setTodos(newTodos);
+    console.log(...todos);
+  };
+
+  return (
+    <Wrapper>
+      <Content>
+        <h2>To do list</h2>
+        <ToDoForm onSubmit={addTodo} />
+        {todos.map((todo) => (
+          <Task key={todo.id} text={todo.text} />
+        ))}
+      </Content>
+    </Wrapper>
+  );
+};
 export default ToDoList;

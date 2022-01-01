@@ -10,7 +10,7 @@ const Project = ({ project }) => (
         title={project.title}
         description={project.description}
       />
-      <ToDoList />
+      <ToDoList tasks={project.tasks} />
     </Content>
   </Wrapper>
 );

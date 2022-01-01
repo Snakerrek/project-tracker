@@ -9,7 +9,6 @@ export const Wrapper = styled.div`
     url(${(props) => props.backdrop}), var(--darkGrey);
   background-size: cover;
   background-position: center;
-  padding: 20px;
 `;
 
 export const Content = styled.div`

@@ -10,8 +10,12 @@ const dummyProjectData = {
     "https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
   time: 10453,
   tasks: [
-    { text: "Do something that you have to do", status: "not-done" },
-    { text: "Do another thing that you have to do", status: "not-done" },
+    { id: 0, text: "Do something that you have to do", status: "not-done" },
+    {
+      id: 1,
+      text: "Do another thing that you have to do",
+      status: "not-done",
+    },
   ],
 };
 

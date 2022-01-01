@@ -1,8 +1,15 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 520px;
   background: orange;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding-bottom: 20px;
 `;
 
 export const Content = styled.div`
