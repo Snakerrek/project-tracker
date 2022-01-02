@@ -1,4 +1,6 @@
-import { convertNumberToTimeString } from "../../helpers";
+import TaskStats from "../TaskStats/TaskStats";
+import Timer from "../Timer/Timer";
+
 import { Wrapper, Text, Content } from "./ProjectDescription.styles";
 
 const ProjectDescription = ({ title, description, time, tasksStats }) => (
@@ -8,10 +10,8 @@ const ProjectDescription = ({ title, description, time, tasksStats }) => (
       <p>{description}</p>
     </Text>
     <Content>
-      Timer: {convertNumberToTimeString(time)}
-      TaskStats: Done: {tasksStats.done}
-      Undone: {tasksStats.undone}
-      Deleted: {tasksStats.deleted}
+      <Timer time={time} />
+      <TaskStats tasksStats={tasksStats} />
     </Content>
   </Wrapper>
 );
