@@ -1,24 +1,27 @@
-export const convertNumberToTimeString = (seconds) => {
-  if (seconds === 0) return "0000:00:00";
-  const hours = Math.floor(seconds / 3600);
-  seconds -= hours * 3600;
-  const minutes = Math.floor(seconds / 60);
-  seconds -= minutes * 60;
-  let timeString = "";
+export const convertNumberToTimeString = (timeInSeconds) => {
+  if (timeInSeconds === 0) return "0000:00:00";
 
-  if (hours === 0) timeString += `0000:`;
-  else if (hours > 1000) timeString += `${hours}:`;
-  else if (hours > 100) timeString += `0${hours}:`;
-  else if (hours > 10) timeString += `00${hours}:`;
-  else timeString += `000${hours}:`;
+  const time = {
+    hours: Math.floor(timeInSeconds / 60 / 60),
+    minutes: Math.floor((timeInSeconds / 60) % 60),
+    seconds: Math.floor(timeInSeconds % 60),
+    timeString: "",
+  };
 
-  if (minutes === 0) timeString += `00:`;
-  else if (minutes < 10) timeString += `0${minutes}:`;
-  else timeString += `${minutes}:`;
+  // Converting to HHHH:MM:SS format (0000:00:00)
+  if (time.hours > 1000) time.timeString += `${time.hours}:`;
+  else if (time.hours > 100) time.timeString += `0${time.hours}:`;
+  else if (time.hours > 10) time.timeString += `00${time.hours}:`;
+  else if (time.hours > 0) time.timeString += `000${time.hours}:`;
+  else time.timeString += `0000:`;
 
-  if (seconds === 0) timeString += `00`;
-  else if (seconds < 10) timeString += `0${seconds}`;
-  else timeString += `${seconds}`;
+  if (time.minutes > 10) time.timeString += `${time.minutes}:`;
+  else if (time.minutes > 0) time.timeString += `0${time.minutes}:`;
+  else time.timeString += `00:`;
 
-  return timeString;
+  if (time.seconds > 10) time.timeString += `${time.seconds}`;
+  else if (time.seconds > 0) time.timeString += `0${time.seconds}`;
+  else time.timeString += `00`;
+
+  return time.timeString;
 };
