@@ -18,7 +18,7 @@ export const Content = styled.div`
     rgba(255, 84, 17, 1) 100%
   );
   text-align: left;
-  padding: 16px;
+  padding: 8px;
   border-radius: 5px;
   width: 90%;
 `;

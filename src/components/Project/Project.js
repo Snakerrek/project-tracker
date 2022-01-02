@@ -9,6 +9,8 @@ const Project = ({ project }) => (
       <ProjectDescription
         title={project.title}
         description={project.description}
+        time={project.time}
+        tasksStats={project.tasksStats}
       />
       <ToDoList tasks={project.tasks} />
     </Content>

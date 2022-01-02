@@ -4,9 +4,12 @@ export const Wrapper = styled.div`
   max-width: 540px;
   background: red;
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-export const Content = styled.div`
+export const Text = styled.div`
   h2 {
     margin: 20px;
     font-size: var(--fontBig);
@@ -18,3 +21,5 @@ export const Content = styled.div`
     color: var(--lightGrey);
   }
 `;
+
+export const Content = styled.div``;

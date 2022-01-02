@@ -17,6 +17,11 @@ const dummyProjectData = {
       status: "not-done",
     },
   ],
+  tasksStats: {
+    done: 0,
+    undone: 0,
+    deleted: 0,
+  },
 };
 
 const App = () => (
