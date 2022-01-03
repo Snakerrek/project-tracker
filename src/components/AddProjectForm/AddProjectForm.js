@@ -1,7 +1,8 @@
 import { useState } from "react";
+
 import { Wrapper } from "./AddProjectForm.styles";
 
-const AddProjectForm = ({ toggleModal }) => {
+const AddProjectForm = ({ toggleModal, addProject }) => {
   const [values, setValues] = useState({
     title: "",
     backgroundUrl: "",
@@ -18,6 +19,20 @@ const AddProjectForm = ({ toggleModal }) => {
       console.log(
         `title:${values.title}, background:${values.backgroundUrl}, description:${values.description}`
       );
+      const newProject = {
+        id: 1,
+        title: values.title,
+        description: values.description,
+        backdropPath: values.backgroundUrl,
+        time: 0,
+        tasks: [],
+        tasksStats: {
+          done: 0,
+          undone: 0,
+          deleted: 0,
+        },
+      };
+      addProject(newProject);
       toggleModal();
     }
   };

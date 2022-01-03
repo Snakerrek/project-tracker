@@ -3,7 +3,7 @@ import ToDoList from "../ToDoList/ToDoList";
 
 import { Wrapper, Content } from "./Project.styles";
 
-const Project = ({ project }) => (
+const Project = ({ project, addTask }) => (
   <Wrapper backdrop={project.backdropPath}>
     <Content>
       <ProjectDescription
@@ -12,7 +12,7 @@ const Project = ({ project }) => (
         time={project.time}
         tasksStats={project.tasksStats}
       />
-      <ToDoList tasks={project.tasks} />
+      <ToDoList index={project.id} tasks={project.tasks} addTask={addTask} />
     </Content>
   </Wrapper>
 );

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Wrapper } from "./ToDoForm.styles";
 
-const ToDoForm = ({ onSubmit }) => {
+const ToDoForm = ({ index, addTask }) => {
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -12,7 +12,7 @@ const ToDoForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onSubmit({
+    addTask(index, {
       id: Math.floor(Math.random() * 10000),
       text: input,
       status: "undone",

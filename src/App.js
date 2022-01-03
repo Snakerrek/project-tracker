@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Header from "./components/Header/Header";
 import Project from "./components/Project/Project";
 import ProjectList from "./components/ProjectList/ProjectList";
@@ -37,13 +39,32 @@ const dummyProjectsData = [
 
 // Or useLocalStorage hook
 
-const App = () => (
-  <div className="App">
-    <Header />
-    <Project project={dummyProjectsData[0]} />
-    <ProjectList projects={dummyProjectsData} />
-    <GlobalStyle />
-  </div>
-);
+const App = () => {
+  const [projects, setProjects] = useState(dummyProjectsData);
+  const [currentProject, setCurrentProject] = useState(dummyProjectsData[0]);
+
+  const addProject = (newProject) => {
+    setProjects((prevState) => [...prevState, newProject]);
+  };
+
+  const addTask = (index, task) => {
+    let newData = [...projects];
+    newData[index].tasks.unshift(task);
+    setProjects(newData);
+  };
+
+  return (
+    <div className="App">
+      <Header />
+      <Project project={currentProject} addTask={addTask} />
+      <ProjectList
+        projects={projects}
+        addProject={addProject}
+        onCurrentProjectChange={setCurrentProject}
+      />
+      <GlobalStyle />
+    </div>
+  );
+};
 
 export default App;
