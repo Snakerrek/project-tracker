@@ -1,5 +1,7 @@
 import { Wrapper, Content } from "./TaskStats.styles";
 
+// TODO: add progress bar displaying how much of tasks are done, don't count deleted ones.
+
 const TaskStats = ({ tasksStats }) => (
   <Wrapper>
     <Content>

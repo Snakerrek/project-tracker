@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+import AddProjectForm from "../AddProjectForm/AddProjectForm";
 import { Wrapper } from "./AddProjectModal.styles";
 
 const AddProjectModal = () => {
@@ -6,12 +8,6 @@ const AddProjectModal = () => {
 
   const toggleModal = () => {
     setModal(!modal);
-  };
-
-  const handleSubmit = (event) => {
-    console.log("submit");
-    toggleModal();
-    event.preventDefault();
   };
 
   return (
@@ -25,27 +21,7 @@ const AddProjectModal = () => {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Add project</h2>
-            <form onSubmit={handleSubmit}>
-              <input
-                id="title"
-                type="text"
-                placeholder="Name of the project"
-                size="41"
-              />
-              <input
-                id="title"
-                type="text"
-                placeholder="Source for background picture"
-                size="41"
-              />
-              <textarea
-                id="description"
-                placeholder="Describe your project"
-                rows="5"
-                cols="40"
-              ></textarea>
-              <input type="submit" value="Add project" />
-            </form>
+            <AddProjectForm toggleModal={toggleModal} />
             <button className="close-modal" onClick={toggleModal}>
               X
             </button>
