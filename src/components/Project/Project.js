@@ -3,13 +3,12 @@ import ToDoList from "../ToDoList/ToDoList";
 
 import { Wrapper, Content } from "./Project.styles";
 
-const Project = ({ project, addTask, changeTaskStatus }) => (
+const Project = ({ project, addTask, changeTaskStatus, saveTimerValue }) => (
   <Wrapper backdrop={project.backdropPath}>
     <Content>
       <ProjectDescription
-        title={project.title}
-        description={project.description}
-        time={project.time}
+        project={project}
+        saveTimerValue={saveTimerValue}
         tasksStats={project.tasksStats}
       />
       <ToDoList

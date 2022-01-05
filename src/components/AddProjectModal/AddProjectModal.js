@@ -3,7 +3,7 @@ import { useState } from "react";
 import AddProjectForm from "../AddProjectForm/AddProjectForm";
 import { Wrapper } from "./AddProjectModal.styles";
 
-const AddProjectModal = ({ addProject }) => {
+const AddProjectModal = ({ addProject, numberOfProjects }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -21,7 +21,11 @@ const AddProjectModal = ({ addProject }) => {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
             <h2>Add project</h2>
-            <AddProjectForm toggleModal={toggleModal} addProject={addProject} />
+            <AddProjectForm
+              toggleModal={toggleModal}
+              addProject={addProject}
+              numberOfProjects={numberOfProjects}
+            />
             <button className="close-modal" onClick={toggleModal}>
               X
             </button>

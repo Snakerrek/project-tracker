@@ -14,7 +14,12 @@ const ProjectList = ({ projects, addProject, onCurrentProjectChange }) => {
           onCurrentProjectChange={onCurrentProjectChange}
         />
       ))}
-      <ProjectThumbnail key={10000} title={"Add"} addProject={addProject} />
+      <ProjectThumbnail
+        key={10000}
+        title={"Add"}
+        addProject={addProject}
+        numberOfProjects={projects.length}
+      />
     </Wrapper>
   );
 };

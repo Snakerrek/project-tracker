@@ -67,7 +67,12 @@ const App = () => {
     }
     newData[index].tasksStats.undone -= 1;
     setProjects(newData);
-    console.log(projects);
+  };
+
+  const saveTimerValue = (index, newTime) => {
+    let newData = [...projects];
+    newData[index].time = newTime;
+    setProjects(newData);
   };
 
   return (
@@ -77,6 +82,7 @@ const App = () => {
         project={currentProject}
         addTask={addTask}
         changeTaskStatus={changeTaskStatus}
+        saveTimerValue={saveTimerValue}
       />
       <ProjectList
         projects={projects}

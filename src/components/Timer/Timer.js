@@ -1,13 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import { convertNumberToTimeString } from "../../helpers";
 
 import { Wrapper, Content, Button } from "./Timer.styles";
 
-const Timer = ({ time }) => {
+const Timer = ({ index, time, saveTimerValue }) => {
   const [timerIsGoing, setTimerIsGoing] = useState(false);
   const [timerValue, setTimerValue] = useState(time);
   const increment = useRef(null);
+
+  useEffect(() => {
+    setTimerValue(time);
+  }, [time]);
 
   const handleStart = () => {
     setTimerIsGoing(true);
@@ -18,8 +22,8 @@ const Timer = ({ time }) => {
 
   const handleStop = () => {
     clearInterval(increment.current);
+    saveTimerValue(index, timerValue);
     setTimerIsGoing(false);
-    // TODO: Set current timerValue to cookies.
   };
 
   return (

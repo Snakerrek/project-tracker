@@ -3,14 +3,18 @@ import Timer from "../Timer/Timer";
 
 import { Wrapper, Text, Content } from "./ProjectDescription.styles";
 
-const ProjectDescription = ({ title, description, time, tasksStats }) => (
+const ProjectDescription = ({ project, tasksStats, saveTimerValue }) => (
   <Wrapper>
     <Text>
-      <h2>{title}</h2>
-      <p>{description}</p>
+      <h2>{project.title}</h2>
+      <p>{project.description}</p>
     </Text>
     <Content>
-      <Timer time={time} />
+      <Timer
+        index={project.id}
+        time={project.time}
+        saveTimerValue={saveTimerValue}
+      />
       <TaskStats tasksStats={tasksStats} />
     </Content>
   </Wrapper>

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { Wrapper } from "./AddProjectForm.styles";
 
-const AddProjectForm = ({ toggleModal, addProject }) => {
+const AddProjectForm = ({ toggleModal, addProject, numberOfProjects }) => {
   const [values, setValues] = useState({
     title: "",
     backgroundUrl: "",
@@ -16,11 +16,8 @@ const AddProjectForm = ({ toggleModal, addProject }) => {
     setSubmitted(true);
 
     if (values.title && values.backgroundUrl && values.description) {
-      console.log(
-        `title:${values.title}, background:${values.backgroundUrl}, description:${values.description}`
-      );
       const newProject = {
-        id: 1,
+        id: numberOfProjects,
         title: values.title,
         description: values.description,
         backdropPath: values.backgroundUrl,

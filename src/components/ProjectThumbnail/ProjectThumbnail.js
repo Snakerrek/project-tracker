@@ -8,13 +8,17 @@ const ProjectThumbnail = ({
   backdrop,
   addProject,
   onCurrentProjectChange,
+  numberOfProjects,
 }) => {
   return (
     <div>
       {title === "Add" ? (
         <Card backdrop={backdrop}>
           <h3>
-            <AddProjectModal addProject={addProject} />
+            <AddProjectModal
+              addProject={addProject}
+              numberOfProjects={numberOfProjects}
+            />
           </h3>
         </Card>
       ) : (
