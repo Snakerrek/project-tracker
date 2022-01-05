@@ -5,15 +5,23 @@ import ToDoForm from "../ToDoForm/ToDoForm";
 
 import { Wrapper, Content } from "./ToDoList.styles";
 
-const ToDoList = ({ index, tasks, addTask }) => {
+const ToDoList = ({ index, tasks, addTask, changeTaskStatus }) => {
   return (
     <Wrapper>
       <Content>
         <h2>To do list</h2>
         <ToDoForm index={index} addTask={addTask} />
-        {tasks.map((task) => (
-          <Task key={task.id} text={task.text} />
-        ))}
+        {tasks.map(
+          (task) =>
+            task.status === "undone" && (
+              <Task
+                key={task.id}
+                task={task}
+                changeTaskStatus={changeTaskStatus}
+                index={index}
+              />
+            )
+        )}
       </Content>
     </Wrapper>
   );

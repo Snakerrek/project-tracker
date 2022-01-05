@@ -2,13 +2,20 @@ import { useState } from "react";
 
 import { Wrapper, Content, Button, Buttons } from "./Task.styles";
 
-const Task = ({ text }) => (
+const Task = ({ task, changeTaskStatus, index }) => (
   <Wrapper>
     <Content>
-      <p>{text}</p>
+      <p>{task.text}</p>
       <Buttons>
-        <Button complete>✔</Button>
-        <Button>x</Button>
+        <Button
+          onClick={() => changeTaskStatus(index, task.id, "done")}
+          complete
+        >
+          ✔
+        </Button>
+        <Button onClick={() => changeTaskStatus(index, task.id, "deleted")}>
+          x
+        </Button>
       </Buttons>
     </Content>
   </Wrapper>

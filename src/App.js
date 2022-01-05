@@ -16,11 +16,11 @@ const dummyProjectsData = [
       "https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
     time: 10453,
     tasks: [
-      { id: 0, text: "Do something that you have to do", status: "not-done" },
+      { id: 0, text: "Do something that you have to do", status: "undone" },
       {
         id: 1,
         text: "Do another thing that you have to do",
-        status: "not-done",
+        status: "undone",
       },
     ],
     tasksStats: {
@@ -50,13 +50,34 @@ const App = () => {
   const addTask = (index, task) => {
     let newData = [...projects];
     newData[index].tasks.unshift(task);
+    newData[index].tasksStats.undone += 1;
     setProjects(newData);
+  };
+
+  const changeTaskStatus = (index, taskId, updatedStatus) => {
+    let newData = [...projects];
+    let indexOfTask = newData[index].tasks.findIndex(
+      (task) => task.id === taskId
+    );
+    newData[index].tasks[indexOfTask].status = updatedStatus;
+    if (updatedStatus === "done") {
+      newData[index].tasksStats.done += 1;
+    } else if (updatedStatus === "deleted") {
+      newData[index].tasksStats.deleted += 1;
+    }
+    newData[index].tasksStats.undone -= 1;
+    setProjects(newData);
+    console.log(projects);
   };
 
   return (
     <div className="App">
       <Header />
-      <Project project={currentProject} addTask={addTask} />
+      <Project
+        project={currentProject}
+        addTask={addTask}
+        changeTaskStatus={changeTaskStatus}
+      />
       <ProjectList
         projects={projects}
         addProject={addProject}
