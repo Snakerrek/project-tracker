@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 import Header from "./components/Header/Header";
 import Project from "./components/Project/Project";
@@ -31,20 +32,15 @@ const dummyProjectsData = [
   },
 ];
 
-// localStorage tests
-//window.localStorage.setItem("project", JSON.stringify(dummyProjectData));
-//const newProject = JSON.parse(window.localStorage.getItem("project"));
-//console.log(dummyProjectData);
-//console.log(newProject);
-
-// Or useLocalStorage hook
-
 const App = () => {
-  const [projects, setProjects] = useState(dummyProjectsData);
-  const [currentProject, setCurrentProject] = useState(dummyProjectsData[0]);
+  const [projects, setProjects] = useLocalStorage("projects", []);
+  const [currentProject, setCurrentProject] = useState(
+    projects.length !== 0 ? projects[0] : {}
+  );
 
   const addProject = (newProject) => {
     setProjects((prevState) => [...prevState, newProject]);
+    setCurrentProject(newProject);
   };
 
   const addTask = (index, task) => {
@@ -78,12 +74,14 @@ const App = () => {
   return (
     <div className="App">
       <Header />
-      <Project
-        project={currentProject}
-        addTask={addTask}
-        changeTaskStatus={changeTaskStatus}
-        saveTimerValue={saveTimerValue}
-      />
+      {projects.length !== 0 && (
+        <Project
+          project={currentProject}
+          addTask={addTask}
+          changeTaskStatus={changeTaskStatus}
+          saveTimerValue={saveTimerValue}
+        />
+      )}
       <ProjectList
         projects={projects}
         addProject={addProject}
