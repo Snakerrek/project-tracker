@@ -15,7 +15,7 @@ const AddProjectForm = ({ toggleModal, addProject, numberOfProjects }) => {
     e.preventDefault();
     setSubmitted(true);
 
-    if (values.title && values.backgroundUrl && values.description) {
+    if (values.title && values.description) {
       const newProject = {
         id: numberOfProjects,
         title: values.title,
@@ -66,9 +66,6 @@ const AddProjectForm = ({ toggleModal, addProject, numberOfProjects }) => {
           placeholder="Source for background picture"
           size="41"
         />
-        {submitted && !values.backgroundUrl ? (
-          <span>Please enter background url</span>
-        ) : null}
         <textarea
           value={values.description}
           onChange={handleDescriptionInputChange}
