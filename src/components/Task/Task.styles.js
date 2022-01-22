@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { appearAnimation } from "../../animations.styles";
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
+  animation: ${appearAnimation} 2s;
 `;
 
 export const Content = styled.div`

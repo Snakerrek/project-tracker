@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Text = styled.div`
+  width: 350px;
   h2 {
     margin: 20px;
     font-size: var(--fontBig);
