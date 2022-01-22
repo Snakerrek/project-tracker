@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  text-align: center;
+  padding: 5px;
+  margin-top: 15px;
 
-export const Content = styled.div``;
+  p {
+    margin: 0;
+    color: var(--white);
+  }
+`;

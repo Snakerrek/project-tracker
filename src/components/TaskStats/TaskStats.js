@@ -1,14 +1,19 @@
-import { Wrapper, Content } from "./TaskStats.styles";
+import { Wrapper } from "./TaskStats.styles";
+
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 // TODO: add progress bar displaying how much of tasks are done, don't count deleted ones.
 
 const TaskStats = ({ tasksStats }) => (
   <Wrapper>
-    <Content>
-      <p>Tasks Done: {tasksStats.done}</p>
-      <p>Tasks in progress: {tasksStats.undone}</p>
-      <p>Tasks deleted: {tasksStats.deleted}</p>
-    </Content>
+    <p> Tasks: </p>
+    <ProgressBar
+      value={tasksStats.done}
+      max={tasksStats.done + tasksStats.undone}
+    />
+    <p>
+      {tasksStats.done}/{tasksStats.undone + tasksStats.done}
+    </p>
   </Wrapper>
 );
 

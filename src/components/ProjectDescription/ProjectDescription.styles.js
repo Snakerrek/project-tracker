@@ -22,4 +22,8 @@ export const Text = styled.div`
   }
 `;
 
-export const Content = styled.div``;
+export const Content = styled.div`
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px;
+  border-radius: 15px;
+`;
