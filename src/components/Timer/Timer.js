@@ -11,6 +11,8 @@ const Timer = ({ index, time, saveTimerValue }) => {
 
   useEffect(() => {
     setTimerValue(time);
+    setTimerIsGoing(false);
+    clearInterval(increment.current);
   }, [time]);
 
   const handleStart = () => {
