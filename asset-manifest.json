@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/project-tracker/static/js/main.442d422a.js",
+    "static/media/default-bg-image.png": "/project-tracker/static/media/default-bg-image.89d6ae456c1e4be935d4.png",
+    "index.html": "/project-tracker/index.html",
+    "main.442d422a.js.map": "/project-tracker/static/js/main.442d422a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.442d422a.js"
+  ]
+}
