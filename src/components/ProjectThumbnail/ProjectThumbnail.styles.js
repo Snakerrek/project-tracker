@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import defaultBackgroundImage from "../../images/default-bg-image.png";
 
 export const Card = styled.div`
   background: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.45) 100%
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.65) 100%
     ),
-    url(${(props) => props.backdrop}), var(--darkGrey);
+    url(${(props) => props.backdrop}), url(${defaultBackgroundImage});
   background-size: cover;
   background-position: center;
   width: 320px;

@@ -14,11 +14,11 @@ export const Content = styled.div`
   color: #fff;
   background: linear-gradient(
     90deg,
-    rgba(255, 118, 20, 1) 0%,
-    rgba(255, 84, 17, 1) 100%
+    rgba(93, 12, 255, 1) 0%,
+    rgba(155, 0, 250, 1) 100%
   );
   text-align: left;
-  padding: 8px;
+  padding: 8px 8px 8px 16px;
   border-radius: 5px;
   width: 90%;
 `;

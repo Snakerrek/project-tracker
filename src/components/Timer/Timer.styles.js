@@ -16,14 +16,15 @@ export const Content = styled.div`
 
 export const Button = styled.button`
   vertical-align: top;
-  background-color: var(--lightGrey);
+  background-color: var(--white);
   border-radius: 6px;
   display: inline-block;
   cursor: pointer;
   color: var(--darkGrey);
   font-size: var(--fontBig);
-  padding: 8px;
+  padding: 4px;
   font-weight: bold;
   text-shadow: 0px 1px 0px #528009;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 4px;
 `;
