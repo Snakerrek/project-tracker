@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   position: relative;
-  animation: ${appearAnimation} 2s;
+  animation: ${appearAnimation} 1s;
 `;
 
 export const Content = styled.div`

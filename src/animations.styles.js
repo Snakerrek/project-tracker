@@ -3,7 +3,7 @@ import { keyframes } from "styled-components";
 
 export const appearAnimation = keyframes`
   from {
-    transform: scale(0);
+    transform: scale(0.5);
   }
   to {
     transform: scale(1);

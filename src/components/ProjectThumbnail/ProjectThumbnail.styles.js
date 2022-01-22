@@ -20,6 +20,10 @@ export const Card = styled.div`
   align-items: center;
   text-align: center;
 
+  :hover {
+    cursor: pointer;
+  }
+
   h3 {
     font-size: var(--fontMedium);
     color: var(--white);

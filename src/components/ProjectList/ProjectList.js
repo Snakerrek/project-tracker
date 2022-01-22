@@ -1,6 +1,6 @@
 import ProjectThumbnail from "../ProjectThumbnail/ProjectThumbnail";
 
-import { Wrapper, Content } from "./ProjectList.styles";
+import { Wrapper } from "./ProjectList.styles";
 
 const ProjectList = ({ projects, addProject, onCurrentProjectChange }) => {
   return (

@@ -1,8 +1,8 @@
 import { Wrapper } from "./Header.styles";
 
-const Header = () => (
+const Header = ({ text }) => (
   <Wrapper>
-    <h1>Project Tracker</h1>
+    <h1>{text}</h1>
   </Wrapper>
 );
 

@@ -12,8 +12,10 @@ const ToDoForm = ({ index, addTask }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const taskId = new Date().getTime();
+
     addTask(index, {
-      id: Math.floor(Math.random() * 10000),
+      id: taskId,
       text: input,
       status: "undone",
     });

@@ -7,31 +7,6 @@ import ProjectList from "./components/ProjectList/ProjectList";
 
 import { GlobalStyle } from "./GlobalStyle";
 
-const dummyProjectsData = [
-  {
-    id: 0,
-    title: "Name of the project",
-    description:
-      "Description of the project-Description of the project-Description of the project-Description of the project",
-    backdropPath:
-      "https://steamuserimages-a.akamaihd.net/ugc/940586530515504757/CDDE77CB810474E1C07B945E40AE4713141AFD76/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false",
-    time: 10453,
-    tasks: [
-      { id: 0, text: "Do something that you have to do", status: "undone" },
-      {
-        id: 1,
-        text: "Do another thing that you have to do",
-        status: "undone",
-      },
-    ],
-    tasksStats: {
-      done: 0,
-      undone: 0,
-      deleted: 0,
-    },
-  },
-];
-
 const App = () => {
   const [projects, setProjects] = useLocalStorage("projects", []);
   const [currentProject, setCurrentProject] = useState(
@@ -73,7 +48,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
+      <Header text={"Project Tracker"} />
       {projects.length !== 0 && (
         <Project
           project={currentProject}
